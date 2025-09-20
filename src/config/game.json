@@ -1,0 +1,78 @@
+{
+  "levels": {
+    "thresholds": [0, 100, 250, 500, 1000, 1750, 2750, 4250, 6500, 9750, 14250, 20250, 28000, 38000, 51000, 67500, 88000, 113500, 145000, 183500],
+    "maxLevel": 20
+  },
+  "xp": {
+    "baseReward": 50,
+    "difficultyMultipliers": {
+      "easy": 1.0,
+      "medium": 1.5,
+      "hard": 2.0,
+      "expert": 2.5
+    },
+    "streakMultipliers": {
+      "1": 1.0,
+      "3": 1.1,
+      "5": 1.25,
+      "7": 1.5,
+      "10": 2.0
+    }
+  },
+  "coins": {
+    "baseReward": 10,
+    "dailyBonus": 50,
+    "levelUpBonus": 100
+  },
+  "missions": {
+    "dailyLimit": 5,
+    "weeklyLimit": 20,
+    "refreshInterval": 86400000
+  },
+  "achievements": [
+    {
+      "id": "first_mission",
+      "title": "Getting Started",
+      "description": "Complete your first mission",
+      "icon": "🌟",
+      "xpReward": 100,
+      "rarity": "common"
+    },
+    {
+      "id": "streak_master",
+      "title": "Streak Master",
+      "description": "Maintain a 7-day streak",
+      "icon": "🔥",
+      "xpReward": 500,
+      "rarity": "rare"
+    },
+    {
+      "id": "quiz_champion",
+      "title": "Quiz Champion",
+      "description": "Score 100% on 10 quizzes",
+      "icon": "🏆",
+      "xpReward": 1000,
+      "rarity": "legendary"
+    }
+  ],
+  "themes": {
+    "kids": {
+      "name": "Friendly Explorer",
+      "colors": ["#FFD166", "#06D6A0", "#118AB2"],
+      "animations": "bouncy",
+      "sounds": "playful"
+    },
+    "teen": {
+      "name": "Neon Warrior", 
+      "colors": ["#FF4D6D", "#4D8AFF", "#7B61FF"],
+      "animations": "dynamic",
+      "sounds": "energetic"
+    },
+    "young-adult": {
+      "name": "Elite Gamer",
+      "colors": ["#66FFCC", "#7B61FF", "#0B0F1A"],
+      "animations": "smooth",
+      "sounds": "subtle"
+    }
+  }
+}

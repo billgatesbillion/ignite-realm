@@ -1,96 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Gamified Design System - Age Group Theming */
 
 @layer base {
   :root {
+    /* Base theme variables */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Game-specific variables */
+    --xp-primary: 120 100% 40%;
+    --xp-secondary: 120 100% 30%;
+    --level-glow: 60 100% 50%;
+    --achievement-gold: 43 100% 50%;
+    --success-confetti: 142 100% 50%;
+    
+    /* Animation variables */
+    --animation-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --animation-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 0.15s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  /* Age Group 8-12: Friendly & Bright */
+  .theme-kids {
+    --background: 46 100% 97%;
+    --foreground: 220 20% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 20%;
+    --primary: 46 100% 50%; /* Sun Yellow */
+    --primary-foreground: 220 20% 20%;
+    --secondary: 163 100% 40%; /* Mint Green */
+    --secondary-foreground: 0 0% 100%;
+    --accent: 200 100% 50%; /* Ocean Blue */
+    --accent-foreground: 0 0% 100%;
+    --muted: 46 30% 95%;
+    --muted-foreground: 220 20% 50%;
+    --border: 46 30% 90%;
+    --input: 0 0% 100%;
+    --ring: 46 100% 50%;
+    --radius: 1rem;
+    
+    /* Game colors */
+    --xp-primary: 163 100% 40%;
+    --xp-secondary: 163 80% 30%;
+    --level-glow: 46 100% 60%;
+    --achievement-gold: 43 100% 50%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(46 100% 50%), hsl(163 100% 40%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(46 20% 98%));
+    --gradient-xp: linear-gradient(90deg, hsl(163 100% 40%), hsl(200 100% 50%));
+  }
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+  /* Age Group 12-15: Energetic & Neon */
+  .theme-teen {
+    --background: 240 20% 8%;
+    --foreground: 0 0% 95%;
+    --card: 240 20% 12%;
+    --card-foreground: 0 0% 95%;
+    --primary: 340 100% 65%; /* Neon Pink */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 100% 65%; /* Electric Blue */
+    --secondary-foreground: 0 0% 100%;
+    --accent: 260 100% 65%; /* Purple */
+    --accent-foreground: 0 0% 100%;
+    --muted: 240 20% 15%;
+    --muted-foreground: 240 20% 70%;
+    --border: 240 20% 20%;
+    --input: 240 20% 15%;
+    --ring: 340 100% 65%;
+    --radius: 0.75rem;
+    
+    /* Game colors */
+    --xp-primary: 340 100% 65%;
+    --xp-secondary: 340 80% 50%;
+    --level-glow: 260 100% 75%;
+    --achievement-gold: 50 100% 60%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(340 100% 65%), hsl(260 100% 65%));
+    --gradient-card: linear-gradient(145deg, hsl(240 20% 12%), hsl(240 15% 18%));
+    --gradient-xp: linear-gradient(90deg, hsl(340 100% 65%), hsl(220 100% 65%));
+  }
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+  /* Age Group 15-20: Sleek Gamer UI */
+  .theme-young-adult {
+    --background: 220 30% 6%;
+    --foreground: 180 50% 90%;
+    --card: 220 25% 10%;
+    --card-foreground: 180 50% 90%;
+    --primary: 175 100% 60%; /* Neon Teal */
+    --primary-foreground: 220 30% 6%;
+    --secondary: 260 100% 65%; /* Violet */
+    --secondary-foreground: 0 0% 100%;
+    --accent: 175 80% 50%;
+    --accent-foreground: 220 30% 6%;
+    --muted: 220 25% 15%;
+    --muted-foreground: 220 20% 65%;
+    --border: 220 20% 20%;
+    --input: 220 25% 12%;
+    --ring: 175 100% 60%;
+    --radius: 0.5rem;
+    
+    /* Game colors */
+    --xp-primary: 175 100% 60%;
+    --xp-secondary: 175 80% 45%;
+    --level-glow: 260 100% 70%;
+    --achievement-gold: 45 100% 55%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(175 100% 60%), hsl(260 100% 65%));
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 10%), hsl(220 20% 15%));
+    --gradient-xp: linear-gradient(90deg, hsl(175 100% 60%), hsl(260 100% 65%));
+    
+    /* Glassmorphism */
+    --glass-bg: hsl(220 25% 10% / 0.8);
+    --glass-border: hsl(175 100% 60% / 0.2);
+  }
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+  * {
+    @apply border-border;
+  }
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+  body {
+    @apply bg-background text-foreground font-inter;
+    transition: all var(--transition-normal) var(--animation-smooth);
+  }
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+  /* Font families by age group */
+  .theme-kids * {
+    font-family: 'Nunito', sans-serif;
+  }
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+  .theme-teen * {
+    font-family: 'Orbitron', sans-serif;
+  }
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+  .theme-young-adult * {
+    font-family: 'Inter', sans-serif;
+  }
+}
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@layer components {
+  /* XP Bar Animation */
+  .xp-bar {
+    @apply relative overflow-hidden rounded-full bg-muted;
+  }
+  
+  .xp-fill {
+    @apply h-full rounded-full transition-all duration-1000 ease-out;
+    background: linear-gradient(90deg, hsl(var(--xp-primary)), hsl(var(--xp-secondary)));
+  }
+  
+  .xp-glow {
+    @apply absolute inset-0 rounded-full opacity-50 blur-sm;
+    background: linear-gradient(90deg, hsl(var(--xp-primary)), hsl(var(--xp-secondary)));
+    animation: pulse 2s infinite;
+  }
+
+  /* Mission Card Hover Effects */
+  .mission-card {
+    @apply relative overflow-hidden rounded-lg border bg-card p-4 transition-all duration-300;
+    transform-style: preserve-3d;
+  }
+  
+  .mission-card:hover {
+    @apply scale-105 shadow-xl;
+    box-shadow: 0 20px 40px hsl(var(--primary) / 0.3);
+  }
+
+  /* Achievement Badge Animation */
+  .achievement-unlock {
+    animation: achievement-bounce 0.6s var(--animation-bounce);
+  }
+  
+  @keyframes achievement-bounce {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    50% { transform: scale(1.2) rotate(-10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  /* Level Up Animation */
+  .level-up {
+    animation: level-up-glow 1s ease-out;
+  }
+  
+  @keyframes level-up-glow {
+    0% { 
+      box-shadow: 0 0 0 hsl(var(--level-glow) / 0.5);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 30px hsl(var(--level-glow) / 0.8);
+      transform: scale(1.1);
+    }
+    100% { 
+      box-shadow: 0 0 0 hsl(var(--level-glow) / 0.5);
+      transform: scale(1);
+    }
+  }
+
+  /* Confetti Trigger */
+  .confetti-trigger {
+    position: relative;
+  }
+  
+  .confetti-trigger::after {
+    content: "🎉";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    animation: confetti-pop 0.5s ease-out;
+    opacity: 0;
+  }
+  
+  .confetti-trigger.active::after {
+    opacity: 1;
+    animation: confetti-pop 0.5s ease-out;
+  }
+  
+  @keyframes confetti-pop {
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+    100% { transform: scale(1) rotate(360deg); opacity: 0; }
+  }
+
+  /* Glassmorphism for young adults */
+  .theme-young-adult .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Button variants */
+  .btn-game {
+    @apply relative overflow-hidden px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+  
+  .btn-game:hover {
+    @apply scale-105;
+    box-shadow: 0 10px 25px hsl(var(--primary) / 0.4);
+  }
+  
+  .btn-game::before {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-300;
+  }
+  
+  .btn-game:hover::before {
+    @apply opacity-20;
+  }
+
+  /* Loading animations */
+  .loading-dots {
+    @apply flex space-x-1;
+  }
+  
+  .loading-dots div {
+    @apply w-2 h-2 rounded-full bg-current opacity-60;
+    animation: loading-bounce 1.4s ease-in-out infinite both;
+  }
+  
+  .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
+  .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+  
+  @keyframes loading-bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
   }
 }
 

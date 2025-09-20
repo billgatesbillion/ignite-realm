@@ -1,73 +1,222 @@
-# Welcome to your Lovable project
+# 🎮 Gamified Learning Platform
 
-## Project info
+A complete, production-ready React frontend for a gamified educational application with age-specific theming and interactive game mechanics.
 
-**URL**: https://lovable.dev/projects/28451ab5-dbeb-4d7a-a38d-aa641a123437
+## ✨ Features
 
-## How can I edit this code?
+### 🎯 Age-Specific Theming
+- **8-12 years (Kids)**: Friendly, bright colors, large buttons, encouraging animations
+- **12-15 years (Teen)**: Neon colors, dynamic effects, energetic UI
+- **15-20 years (Young Adult)**: Sleek design, glassmorphism, professional look
 
-There are several ways of editing your application.
+### 🎮 Game Mechanics
+- **XP System**: Animated progress bars, level progression
+- **Missions**: Interactive mission cards with progress tracking
+- **Achievements**: Unlockable badges with celebration animations
+- **Leaderboards**: Real-time rankings and competition
+- **Streak System**: Daily engagement rewards
+- **Virtual Currency**: Coins system for shop purchases
 
-**Use Lovable**
+### 🚀 Technical Features
+- **Responsive Design**: Mobile-first approach
+- **Real-time Updates**: Socket.io integration ready
+- **Mock API**: Complete development environment
+- **Accessibility**: ARIA labels, keyboard navigation
+- **Performance**: Lazy loading, code splitting ready
+- **Animations**: Framer Motion integration
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/28451ab5-dbeb-4d7a-a38d-aa641a123437) and start prompting.
+## 🛠️ Technology Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, shadcn/ui components
+- **Animations**: Framer Motion
+- **State Management**: React Context + React Query
+- **API**: Axios with mock development server
+- **Real-time**: Socket.io client
+- **Sound**: Howler.js (ready for audio integration)
+- **Routing**: React Router v6
 
-**Use your preferred IDE**
+## 📦 Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🔧 Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Copy `.env.example` to `.env` and configure:
 
-**Use GitHub Codespaces**
+```env
+# API Configuration
+VITE_API_URL=http://localhost:3001/api
+VITE_SOCKET_URL=http://localhost:3001
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Development Features
+VITE_MOCK_API=true
+VITE_ENABLE_DEBUG_PANEL=true
 
-## What technologies are used for this project?
+# Game Configuration
+VITE_DEFAULT_AGE_GROUP=teen
+VITE_ENABLE_SOUNDS=true
+VITE_ENABLE_ANIMATIONS=true
+```
 
-This project is built with:
+## 🎨 Age Group Themes
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Kids Theme (8-12 years)
+- **Colors**: Sun Yellow (#FFD166), Mint Green (#06D6A0), Ocean Blue (#118AB2)
+- **Font**: Nunito (rounded, friendly)
+- **Style**: Large buttons, rounded corners, playful animations
+- **Messaging**: Encouraging, simple language
 
-## How can I deploy this project?
+### Teen Theme (12-15 years)
+- **Colors**: Neon Pink (#FF4D6D), Electric Blue (#4D8AFF), Purple (#7B61FF)
+- **Font**: Orbitron (futuristic)
+- **Style**: Dynamic animations, bold effects, badges
+- **Messaging**: Energetic, achievement-focused
 
-Simply open [Lovable](https://lovable.dev/projects/28451ab5-dbeb-4d7a-a38d-aa641a123437) and click on Share -> Publish.
+### Young Adult Theme (15-20 years)
+- **Colors**: Neon Teal (#66FFCC), Violet (#7B61FF), Dark (#0B0F1A)
+- **Font**: Inter (clean, modern)
+- **Style**: Glassmorphism, subtle animations, detailed stats
+- **Messaging**: Professional, data-driven
 
-## Can I connect a custom domain to my Lovable project?
+## 📱 Pages & Components
 
-Yes, you can!
+### Core Pages
+- **Dashboard**: Overview, stats, quick actions
+- **Login/Signup**: Age group selection, avatar picker
+- **Missions**: Interactive mission browser
+- **Quizzes**: Timed quiz system
+- **Leaderboard**: Rankings and competition
+- **Profile**: User stats, achievements
+- **Shop**: Virtual currency store
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Key Components
+- **XPBar**: Animated progress visualization
+- **MissionCard**: Interactive mission display
+- **GameSidebar**: Navigation with user stats
+- **GameHeader**: Notifications, user menu
+- **AgeGroupSelector**: Theme selection interface
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🔌 API Integration
+
+The app includes a complete mock API layer that can be easily mapped to your backend:
+
+### Auth Endpoints
+```typescript
+// Login user
+POST /auth/login { email, password }
+
+// Register user  
+POST /auth/signup { email, password, username, ageGroup, avatarUrl }
+
+// Get user profile
+GET /user/profile
+```
+
+### Game Endpoints
+```typescript
+// Get missions
+GET /missions
+
+// Start mission
+POST /missions/:id/start
+
+// Submit mission
+POST /missions/:id/submit { data }
+
+// Get leaderboard
+GET /leaderboard?timeframe=weekly
+```
+
+### Socket Events
+```typescript
+// Real-time events
+'leaderboard:update' - Live ranking changes
+'achievement:unlocked' - Achievement notifications
+'mission:update' - New missions available
+'notification:new' - System notifications
+```
+
+## 🎯 Backend Integration
+
+To connect to your actual backend:
+
+1. **Update API endpoints** in `src/lib/api.ts`
+2. **Configure authentication** in `src/contexts/AuthContext.tsx`
+3. **Map data models** to match your backend schema
+4. **Set up Socket.io** in `src/lib/socket.ts`
+5. **Update environment variables** for production
+
+### Backend Requirements Checklist
+- [ ] User authentication (JWT or sessions)
+- [ ] Mission CRUD operations
+- [ ] XP/level calculation system
+- [ ] Leaderboard rankings
+- [ ] Achievement tracking
+- [ ] Real-time notifications (optional)
+
+## 🚀 Deployment
+
+```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+Deploy the `dist` folder to your hosting platform.
+
+## 🎮 Demo Account
+
+Use these credentials to test the application:
+- **Email**: demo@example.com
+- **Password**: demo123
+
+## 🔍 Development Features
+
+### Mock API
+The app includes a complete mock API for development, allowing you to:
+- Test all user flows without a backend
+- Simulate real API responses
+- Develop offline
+
+### Debug Panel
+Enable debug features with `VITE_ENABLE_DEBUG_PANEL=true`:
+- Trigger XP gains
+- Unlock achievements
+- Spawn test missions
+- View API responses
+
+### Sound System
+Ready for audio integration with Howler.js:
+- Age-appropriate sound themes
+- Mutable audio controls
+- Achievement sound effects
+- Background music support
+
+## 📄 License
+
+This project is built with Lovable and follows standard web development practices.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+---
+
+**Ready to level up your learning experience!** 🚀
